@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/style/app.css">
     <title>Todo List App</title>
+
+    <script>
+      if (localStorage.getItem('ThemeColor')) {
+      if (localStorage.ThemeColor === 'dark' || (!('ThemeColor' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    </script>
   </head>
   <body class="bg-gray-100 dark:bg-zinc-800 dark:text-white overflow-x-hidden transition-colors font-sans">
     <div id="root"></div>

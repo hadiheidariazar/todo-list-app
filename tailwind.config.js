@@ -4,9 +4,26 @@ export default {
     "./index.html",
     "./src/**/*.{ts,tsx,js,jsx}"
   ],
+  darkMode: 'class',
   theme: {
-    extend: {},
+    screens: {
+      sm: "640px",
+      md: '769px',
+      lg: '1024px',
+      xl: '1280px'
+    },
+    extend: {
+      screens: {
+        xs: "480px",
+        ipad: "992px"
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('child', '& > *')
+      addVariant('child-hover', '& > *:hover')
+    }
+  ],
 }
 
